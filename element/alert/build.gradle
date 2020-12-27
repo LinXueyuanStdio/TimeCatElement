@@ -2,6 +2,7 @@ apply from: "${project.rootDir}/gradle/library_header.gradle"
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.timecat["component-SelfArms"]
     api rootProject.ext.androidx_lib["design"]
 
     api 'com.afollestad.material-dialogs:core:3.3.0'
