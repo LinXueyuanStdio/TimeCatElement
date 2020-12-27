@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+def VERSION_NAME = "2.1.1"
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 27
+        versionCode 18
+        versionName VERSION_NAME
+    }
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', file(rootProject.ext.android["globalProguardFilesPath"])
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    compileOnly rootProject.ext.androidx_lib["appcompat"]
+}
+
+
+
+ext {
+    // 从Github上clone下来的项目的本地地址
+    DIST_PATH = "../../TimeCatMaven"
+    PUBLISH_GROUP_ID = 'com.timecat.widget'
+    PUBLISH_ARTIFACT_ID = 'widget-edittext'
+    PUBLISH_VERSION = rootProject.ext.widget_edittext_version
+}
+apply from: "$project.rootDir/TimeCatGradle/publish.gradle"
+apply from: "$project.rootDir/TimeCatGradle/analysis.gradle"
+

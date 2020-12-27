@@ -1,8 +1,8 @@
 include ':app'
-//TODO include ':template'
-//TODO include ':template:template'
+include ':element:alert'
+include ':element:listview'
 
-rootProject.name = "TimeCatRepoTemplate"
+rootProject.name = "TimeCatElement"
 
 // 引入composing的设置
 apply from: "gradle/composingConfig.gradle"

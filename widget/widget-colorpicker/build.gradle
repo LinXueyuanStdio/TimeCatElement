@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+	compileSdkVersion 27
+	buildToolsVersion '27.0.3'
+
+	defaultConfig {
+		minSdkVersion 14
+		targetSdkVersion 27
+		versionCode 11
+		versionName "0.0.11"
+	}
+	buildTypes {
+		release {
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', file(rootProject.ext.android["globalProguardFilesPath"])
+		}
+	}
+	packagingOptions {
+		exclude 'proguard-project.txt'
+		exclude 'project.properties'
+		exclude 'META-INF/LICENSE.txt'
+		exclude 'META-INF/LICENSE'
+		exclude 'META-INF/NOTICE.txt'
+		exclude 'META-INF/NOTICE'
+		exclude 'META-INF/DEPENDENCIES.txt'
+		exclude 'META-INF/DEPENDENCIES'
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	compileOnly rootProject.ext.androidx_lib["appcompat"]
+	implementation rootProject.ext.dependencies["kotlin-stdlib"]
+}
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+	// 从Github上clone下来的项目的本地地址
+	DIST_PATH = "../../TimeCatMaven"
+	PUBLISH_GROUP_ID = 'com.timecat.widget'
+	PUBLISH_ARTIFACT_ID = 'widget-colorpicker'
+	PUBLISH_VERSION = rootProject.ext.widget_colorpicker_version
+}
+apply from: "$project.rootDir/TimeCatGradle/publish.gradle"
+apply from: "$project.rootDir/TimeCatGradle/analysis.gradle"
+

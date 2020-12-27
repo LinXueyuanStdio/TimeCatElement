@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="16dp"
+  android:orientation="vertical">
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="5dp"
+    android:paddingStart="16dp"
+    android:text="@string/text_pick"/>
+
+  <TextView
+    android:id="@+id/tv_album"
+    style="@style/OptionListItem"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:drawableLeft="@drawable/ic_photo_library_grey_24dp"
+    android:text="@string/album"
+    android:visibility="gone"
+    tools:visibility="visible"/>
+
+  <TextView
+    android:id="@+id/tv_link"
+    style="@style/OptionListItem"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:drawableLeft="@drawable/ic_link"
+    android:text="@string/net_image_link"
+    android:visibility="gone"
+    tools:visibility="visible"/>
+
+  <TextView
+    android:id="@+id/tv_file"
+    style="@style/OptionListItem"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:drawableLeft="@drawable/ic_insert_drive_file_grey_24dp"
+    android:text="@string/file"/>
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingStart="16dp"
+    android:text="@string/create"/>
+
+  <TextView
+    android:id="@+id/tv_take_photo"
+    style="@style/OptionListItem"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:drawableLeft="@drawable/ic_add_a_photo_grey_24dp"
+    android:text="@string/take_a_photo"/>
+
+  <!--<TextView-->
+  <!--style="@style/OptionListItem"-->
+  <!--android:drawableLeft="@drawable/ic_mic_grey_24dp"-->
+  <!--android:text="@string/sound_record"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="45dp"-->
+  <!--android:id="@+id/tv_record_sound" />-->
+
+  <!--<TextView-->
+  <!--style="@style/OptionListItem"-->
+  <!--android:drawableLeft="@drawable/ic_videocam_grey_24dp"-->
+  <!--android:text="@string/take_video"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="45dp"-->
+  <!--android:id="@+id/tv_take_video" />-->
+
+  <!--<TextView-->
+  <!--style="@style/OptionListItem"-->
+  <!--android:drawableLeft="@drawable/ic_gesture_grey_24dp"-->
+  <!--android:text="@string/sketch"-->
+  <!--android:layout_height="45dp"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:id="@+id/tv_sketch" />-->
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+ext {
+    PUBLISH_GROUP_ID = 'cn.jiguang.imui'
+    PUBLISH_ARTIFACT_ID = 'chatinput'
+    PUBLISH_VERSION = '0.9.1'
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 2
+        versionName "0.1.1"
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+    }
+
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', file(rootProject.ext.android["globalProguardFilesPath"])
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    compileOnly rootProject.ext.androidx_lib["appcompat"]
+    compileOnly rootProject.ext.androidx_lib["design"]
+    implementation 'com.google.android:flexbox:1.0.0'
+    implementation rootProject.ext.dependencies["glide"]
+
+    testImplementation rootProject.ext.dependencies["junit"]
+}
+
+
+
+ext {
+    // 从Github上clone下来的项目的本地地址
+    DIST_PATH = "../../TimeCatMaven"
+    PUBLISH_GROUP_ID = 'com.timecat.widget'
+    PUBLISH_ARTIFACT_ID = 'widget-chatinput'
+    PUBLISH_VERSION = rootProject.ext.widget_chatinput_version
+}
+apply from: "$project.rootDir/TimeCatGradle/publish.gradle"
+apply from: "$project.rootDir/TimeCatGradle/analysis.gradle"
+

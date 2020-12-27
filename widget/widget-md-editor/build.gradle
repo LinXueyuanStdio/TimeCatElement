@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+    }
+    packagingOptions {
+        exclude 'proguard-project.txt'
+        exclude 'project.properties'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', file(rootProject.ext.android["globalProguardFilesPath"])
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.androidx_lib["lifecycle-extensions"]
+    api rootProject.ext.dependencies["kotlin-stdlib"]
+    api rootProject.ext.androidx_lib["appcompat"]
+    api rootProject.ext.androidx_lib["design"]
+    //Flexmark
+    api 'com.vladsch.flexmark:flexmark:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-tables:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-gfm-tasklist:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-autolink:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-abbreviation:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-superscript:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-footnotes:0.28.32'
+    api 'com.vladsch.flexmark:flexmark-ext-attributes:0.28.32'
+    //Logger
+    api 'com.orhanobut:logger:2.1.1'
+    //图片压缩
+    api 'top.zibin:Luban:1.1.3'
+
+    api rootProject.ext.dependencies["HoloColorPicker"]
+
+}
+
+ext {
+    // 从Github上clone下来的项目的本地地址
+    DIST_PATH = "../../TimeCatMaven"
+    PUBLISH_GROUP_ID = 'com.timecat.widget'
+    PUBLISH_ARTIFACT_ID = 'widget-md-editor'
+    PUBLISH_VERSION = '1.0.2'
+}
+apply from: "$project.rootDir/TimeCatGradle/publish.gradle"
+apply from: "$project.rootDir/TimeCatGradle/analysis.gradle"
+

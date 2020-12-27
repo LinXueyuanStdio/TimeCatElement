@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingTop="15dp"
+  android:paddingLeft="15dp"
+  android:paddingRight="15dp"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/rowNumberHint"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:paddingRight="3dp">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_md_rows_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="123456789"
+        android:focusable="true"
+        android:hint="@string/md_input_rows_number"
+        android:inputType="number"
+        android:maxLength="2"
+        android:text=""/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/columnNumberHint"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:paddingLeft="3dp">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_md_cols_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="123456789"
+        android:focusable="true"
+        android:hint="@string/md_input_cols_number"
+        android:inputType="number"
+        android:maxLength="2"
+        android:text=""/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+  </LinearLayout>
+
+  <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="8dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:id="@+id/tv_md_confirm"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:paddingLeft="12dp"
+      android:paddingRight="12dp"
+      android:background="?attr/selectableItemBackground"
+      android:gravity="center"
+      android:text="@string/text_confirm"
+      android:textSize="15sp"
+      android:visibility="visible"/>
+
+    <TextView
+      android:id="@+id/tv_md_cancel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="5dp"
+      android:layout_toLeftOf="@id/tv_md_confirm"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:paddingLeft="12dp"
+      android:paddingRight="12dp"
+      android:background="?attr/selectableItemBackground"
+      android:gravity="center"
+      android:text="@string/text_cancel"
+      android:textSize="15sp"/>
+
+  </RelativeLayout>
+
+</LinearLayout>

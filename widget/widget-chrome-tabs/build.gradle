@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+        debug {
+        }
+    }
+}
+
+dependencies {
+    api 'com.github.michael-rapp:android-util:2.1.0'
+    api 'com.github.michael-rapp:android-material-views:3.0.1'
+    api 'androidx.annotation:annotation:1.1.0'
+    api rootProject.ext.androidx_lib["appcompat"]
+}
+
+ext {
+    // 从Github上clone下来的项目的本地地址
+    DIST_PATH = "../../TimeCatMaven"
+    PUBLISH_GROUP_ID = 'com.timecat.widget'
+    PUBLISH_ARTIFACT_ID = 'widget-chrome-tabs'
+    PUBLISH_VERSION = "1.0.1"
+}
+apply from: "$project.rootDir/TimeCatGradle/publish.gradle"
+apply from: "$project.rootDir/TimeCatGradle/analysis.gradle"
+
