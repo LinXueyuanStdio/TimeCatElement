@@ -14,6 +14,7 @@ import com.github.basshelal.boardview.BoardItemViewHolder
 import com.github.basshelal.boardview.BoardListAdapter
 import com.github.basshelal.boardview.BoardViewContainer
 import com.github.basshelal.boardview.drag.ObservableDragBehavior
+import com.timecat.demo.element.R
 
 class DefaultExampleFragment : Fragment() {
 
