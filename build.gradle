@@ -6,7 +6,7 @@ buildscript {
     }
     def localMavenDir = file(moduleConfigProps.localMavenPath)
 
-    ext.kotlin_version = '1.4.20'
+    ext.kotlin_version = '1.4.32'
 
     repositories {
         google()
@@ -16,7 +16,7 @@ buildscript {
 //        maven { url "https://github.com/LinXueyuanStdio/MLang/raw/main/dist/" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.android.tools.build:gradle:4.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath "com.github.breadmoirai:github-release:2.2.12"

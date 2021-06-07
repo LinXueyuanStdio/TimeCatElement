@@ -1,0 +1,27 @@
+apply from: "${project.rootDir}/gradle/library_header.gradle"
+apply plugin: 'kotlin-android'
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.androidx_lib["appcompat"]
+    implementation rootProject.ext.dependencies["kotlin-stdlib-jdk7"]
+    implementation rootProject.ext.androidx_lib["core-ktx"]
+    implementation rootProject.ext.androidx_lib["design"]
+    implementation rootProject.ext.androidx_lib["constraint-layout"]
+    implementation rootProject.ext.androidx_lib["support-dynamic-animation"]
+    implementation 'me.everything:overscroll-decor-android:1.0.4'
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+}
+
+apply from: "${project.rootDir}/gradle/library_tail.gradle"

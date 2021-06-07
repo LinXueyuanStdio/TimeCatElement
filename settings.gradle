@@ -1,6 +1,7 @@
 include ':app'
 include ':element:alert'
 include ':element:listview'
+include ':widget:board'
 
 rootProject.name = "TimeCatElement"
 
