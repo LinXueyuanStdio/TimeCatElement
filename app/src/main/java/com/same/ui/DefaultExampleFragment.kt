@@ -22,7 +22,7 @@ class DefaultExampleFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val view = inflater.inflate(R.layout.fragment_default_example, container, false)
+        val view = inflater.inflate(R.layout.view_db_board, container, false)
         boardViewContainer = view.findViewById(R.id.defaultBoardViewContainer)
         return view
     }
@@ -62,9 +62,9 @@ private class ExampleBoardContainerAdapter(val board: Board<String>) : BoardCont
 
     override fun onCreateListAdapter(position: Int) = ExampleBoardListAdapter(position)
 
-    override val headerLayoutRes: Int? = R.layout.view_header_default
+    override val headerLayoutRes: Int? = R.layout.view_db_board_header
 
-    override val footerLayoutRes: Int? = R.layout.view_footer_default
+    override val footerLayoutRes: Int? = R.layout.view_db_board_footer
 
     override fun onMoveColumn(draggingColumn: BoardColumnViewHolder,
                               targetPosition: Int): Boolean {
@@ -207,5 +207,5 @@ private class ItemVH(itemView: View) : BoardItemViewHolder(itemView) {
     val textView: TextView = itemView.findViewById(R.id.cardText_textView)
 
     constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_itemview_default, parent, false))
+            .inflate(R.layout.view_db_board_item, parent, false))
 }

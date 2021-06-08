@@ -593,6 +593,8 @@ public class SmartTable<T> extends View implements OnTableChangeListener {
                 if (((Activity) context).isFinishing()) {
                     release();
                 }
+            } else {
+                release();
             }
         }
     }
