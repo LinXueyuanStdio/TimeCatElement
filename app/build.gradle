@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.timecat["component-SelfArms"]
     implementation rootProject.ext.androidx_lib["appcompat"]
 //    TODO 为你的库写一个演示 demo
 //    implementation project(':template')
